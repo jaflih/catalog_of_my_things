@@ -3,3 +3,8 @@ CREATE TABLE authors(
   first_name VARCHAR(255),
   last_name VARCHAR(255)
 );
+
+CREATE TABLE games(
+  multiplayer BOOLEAN,
+  last_played_at DATE
+) INHERITS (Items);

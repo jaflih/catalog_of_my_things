@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './application/author'
 # require './application/item'
 # require './application/genre'

@@ -1,0 +1,10 @@
+CREATE TABLE BOOKS ( id INT PRIMARY KEY  GENERATED ALWAYS AS IDENTITY,
+publisher text,
+cover_state text,
+publish_date date,
+archived boolean);
+
+CREATE TABLE LABEL (ID INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+TITLE TEXT,
+COLOR TEXT );
+

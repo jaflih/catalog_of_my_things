@@ -1,5 +1,7 @@
 require 'date'
 
+# rubocop:disable Style/TrivialAccessors
+# We disable this linter because of the requirements
 class Item
   attr_accessor :publish_date
   attr_reader :id, :archived, :genre, :author, :source, :label
@@ -38,3 +40,5 @@ class Item
     (currently_year - publish_year) >= 10
   end
 end
+
+# rubocop:enable Style/TrivialAccessors

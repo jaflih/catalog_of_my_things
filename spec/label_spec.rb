@@ -1,4 +1,5 @@
 require_relative '../application/label'
+require_relative '../application/item'
 
 describe 'Class label' do
   before(:all) do
@@ -18,6 +19,17 @@ describe 'Class label' do
 
     it '@label.color Should return color' do
       expect(@label.color).to eq 'green'
+    end
+  end
+
+  context 'add_item Method in the Label class' do
+    item = Item.new('2021-10-03', true)
+    before(:all) do
+      @label.add_item(item)
+    end
+    it 'Items should have one (1) element in it' do
+      item_length = @label.items.length
+      expect(item_length).to eq 1
     end
   end
 end

@@ -1,3 +1,4 @@
+require_relative '../application/book'
 describe 'Book class' do
   before(:all) do
     @book = Book.new
@@ -8,3 +9,4 @@ describe 'Book class' do
     end
   end
 end
+

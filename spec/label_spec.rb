@@ -1,4 +1,5 @@
 require_relative '../application/label'
+
 describe 'Class label' do
   before(:all) do
     @label = Label.new('movie', 'green')
@@ -12,11 +13,11 @@ describe 'Class label' do
 
   context '@label should have attribute color and title' do
     it '@label.title Should return title' do
-      expect(@label).to eq 'movie'
+      expect(@label.title).to eq 'movie'
     end
 
     it '@label.color Should return color' do
-      expect(@label).to eq 'green'
+      expect(@label.color).to eq 'green'
     end
   end
 end

@@ -14,4 +14,10 @@ describe 'Book class' do
       expect(@book.publisher).to eq 'james bond'
     end
   end
+
+  context 'book to have attribute publisher and cover state' do
+    it 'cover_state attribute should return cover_state' do
+      expect(@book.cover_state).to eq 'cover_state'
+    end
+  end
 end

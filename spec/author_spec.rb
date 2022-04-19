@@ -1,8 +1,4 @@
 require './application/author'
-# require './application/item'
-# require './application/genre'
-# require './application/source'
-# require './application/label'
 
 describe 'Author' do
   before(:each) do
@@ -26,14 +22,4 @@ describe 'Author' do
     expect { @author.id = 1 }.to raise_error(NoMethodError)
     expect { @author.items = [1] }.to raise_error(NoMethodError)
   end
-
-  # it 'Check addItem()' do
-  #  expect(@author.items).to eq []
-  #  item = 'item' # Item.new('genre', @author, 'source', 'label', '1999/02/02', true)
-  #  @author.add_item(item)
-  #  expect(@author.items).to eq [item]
-  #  item2 = 'item2' # Item.new('genre', @author, 'source', 'label', '1999/02/02', true)
-  #  @author.add_item(item2)
-  #  expect(@author.items).to eq [item, item2]
-  # end
 end

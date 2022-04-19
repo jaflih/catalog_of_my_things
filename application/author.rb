@@ -1,4 +1,3 @@
-# Author model
 class Author
   attr_accessor :first_name, :last_name
   attr_reader :id, :items
@@ -9,8 +8,4 @@ class Author
     @last_name = last_name
     @items = []
   end
-
-  # def add_item(item)
-  #  @items << item
-  # end
 end

@@ -32,7 +32,7 @@ describe 'Class label' do
       expect(item_length).to eq 1
     end
 
-    it 'Items should have one (1) element in it' do
+    it 'Items should have element of instance Item' do
       item_value = @label.items[0]
       expect(item_value).to be_an_instance_of Item
     end

@@ -21,8 +21,13 @@ describe 'Book class' do
 
   context 'can_archived method' do
     it 'can_be_archived should return true if parent method return true or cover_state equals bad' do
-      @book = Book.new('james bond', 'bad', '2021-10-02', false)
+      @book = Book.new('james bond', 'bad', '2021-10-02', true)
       expect(@book.can_be_archived?).to eq true
+    end
+
+    it 'can_be_archived should return false if parent method return false or cover_state not equals bad' do
+      @book = Book.new('james bond', 'state', '2021-10-02', false)
+      expect(@book.can_be_archived?).to eq false
     end
   end
 end

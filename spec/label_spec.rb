@@ -31,5 +31,10 @@ describe 'Class label' do
       item_length = @label.items.length
       expect(item_length).to eq 1
     end
+
+    it 'Items should have one (1) element in it' do
+      item_value = @label.items[0]
+      expect(item_value).to be_an_instance_of Item
+    end
   end
 end

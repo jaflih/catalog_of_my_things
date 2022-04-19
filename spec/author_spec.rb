@@ -1,4 +1,5 @@
 require './application/author'
+require './application/item'
 
 describe 'Author' do
   before(:each) do
@@ -21,5 +22,21 @@ describe 'Author' do
 
     expect { @author.id = 1 }.to raise_error(NoMethodError)
     expect { @author.items = [1] }.to raise_error(NoMethodError)
+  end
+
+  it 'Add author to Item' do
+    item = Item.new('2022/02/02', false)
+    item.author = @author
+    expect(item.author).to eq @author
+  end
+
+  it 'Update author to Item' do
+    item = Item.new('2022/02/02', false)
+    item.author = @author
+    expect(item.author).to eq @author
+
+    author2 = Author.new('Agatha', 'Cristy')
+    item.author = author2
+    expect(item.author).to eq author2
   end
 end

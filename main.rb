@@ -8,7 +8,7 @@ def main()
   option = nil
   while option != '0'
     util.menu_display
-    option = $stdin.gets.chomp
+    option = gets.chomp
     case option
     when '1'
       app.list_books

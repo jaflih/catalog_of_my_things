@@ -11,6 +11,8 @@ class App
     @books = []
     @games = []
     @authors = [Author.new('Stephen', 'King')]
+    @genres = []
+    @labels = []
   end
 
   def list_all_books
@@ -25,8 +27,8 @@ class App
     display_games(@games)
   end
 
-  def create_game()
-    @games << create_new_game
+  def create_game
+    @games << create_new_game(@authors, @genres, @labels)
   end
 
   def list_authors

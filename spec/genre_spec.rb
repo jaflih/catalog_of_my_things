@@ -12,7 +12,7 @@ describe Genre do
         expect(@genre).to be_an_instance_of Genre
       end
     end
-    
+
     context '@genre should have attribute name' do
       it '@label.title Should return name' do
         expect(@genre.name).to eq 'Pop music'

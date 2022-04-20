@@ -39,4 +39,22 @@ describe 'Author' do
     item.author = author2
     expect(item.author).to eq author2
   end
+
+  it 'Check addItem()' do
+    expect(@author.items).to eq []
+    item = Item.new('1999/02/02', true)
+    @author.add_item(item)
+    expect(@author.items).to eq [item]
+    item2 = Item.new('1999/02/02', true)
+    @author.add_item(item2)
+    expect(@author.items).to eq [item, item2]
+  end
+
+  it 'Check addItem()' do
+    expect(@author.items).to eq []
+    item = Item.new('1999/02/02', true)
+    @author.add_item(item)
+    expect(@author.items).to eq [item]
+    expect(item.author).to eq @author
+  end
 end

@@ -1,3 +1,5 @@
+CREATE DATABASE catalog;
+
 CREATE TABLE Items(
   id INT PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY,
   publish_date DATE,
@@ -5,6 +7,16 @@ CREATE TABLE Items(
   genre_id INT REFERENCES genres(id),
   author_id INT REFERENCES authors(id),
   label_id INT REFERENCES labels(id)
+);
+
+CREATE TABLE music_albums (
+  on_spotify BOOLEAN
+)INHERITS(items);
+
+CREATE TABLE genres (
+  id INT GENERATED ALWAYS AS IDENTITY,
+  name VARCHAR(100),
+  PRIMARY KEY(id)
 );
 
 CREATE TABLE books ( id INT PRIMARY KEY  GENERATED ALWAYS AS IDENTITY,
@@ -30,5 +42,3 @@ CREATE TABLE games(
   multiplayer BOOLEAN,
   last_played_at DATE
 ) INHERITS (Items);
-
-

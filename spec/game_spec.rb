@@ -40,4 +40,23 @@ describe 'Game' do
   it 'Check than Game instance of Item' do
     expect(@game).to be_a Item
   end
+
+  it 'Check move_to_archive :return the default value of @archived (parent::can_be_archived? = false)  ' do
+    game1 = Game.new('2020/02/02', false, true, '2005/02/02')
+    game1.move_to_archive
+    expect(game1.archived).to eq false
+  end
+
+  it 'Check move_to_archive :return the default value of @archived (child::can_be_archived? = false)  ' do
+    game1 = Game.new('1999/02/02', false, true, '2022/02/02')
+    game1.move_to_archive
+    expect(game1.archived).to eq false
+  end
+
+  it 'Check move_to_archive : @archived = true (can_be_archived? = true)' do
+    @game.last_played_at = '2006/04/04'
+    @game.publish_date = '1999/02/03'
+    @game.move_to_archive
+    expect(@game.archived).to eq true
+  end
 end

@@ -1,3 +1,4 @@
+require 'date'
 require_relative './item'
 
 class MusicAlbum < Item
@@ -7,4 +8,10 @@ class MusicAlbum < Item
     super(publish_date, archived)
     @on_spotify = on_spotify
   end
+
+  def can_be_archived?
+    return true if super && @on_spotify
+  end
+
+  private :can_be_archived?
 end

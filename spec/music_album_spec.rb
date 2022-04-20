@@ -19,5 +19,12 @@ describe MusicAlbum do
       instance_property = @music_album.on_spotify
       expect(instance_property).to eq(true)
     end
+
+    it 'Check move_to_archive : @archived = true (can_be_archived? = true)' do
+      @music_album.on_spotify = true
+      @music_album.publish_date = '1990/02/03'
+      @music_album.move_to_archive
+      expect(@music_album.archived).to eq true
+    end
   end
 end

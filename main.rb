@@ -23,6 +23,7 @@ def main()
     when '0'
       puts "\n"
       puts 'Exited successfully, thank you for using this app 👍😊💪'
+      app.save
     else
       puts 'Wrong input'
     end

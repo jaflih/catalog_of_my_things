@@ -71,3 +71,40 @@ def create_new_game(authors, genres, labels)
   add_label(labels, game)
   game
 end
+
+def save_games(games)
+  game = games.map do |item|
+    {
+      publish_date: item.publish_date,
+      archived: item.archived,
+      multiplayer: item.multiplayer,
+      last_played_at: item.last_played_at,
+      author: item.author&.first_name,
+      genre: item.genre&.name,
+      label: item.label&.title
+    }
+  end
+
+  data = JSON.generate(game)
+  File.write('data/games.json', data)
+end
+
+def load_games(authors)
+  return [] unless File.exist?('data/games.json')
+
+  p authors
+  games = []
+
+  data = File.read('data/games.json')
+  JSON.parse(data).each do |item|
+    game = Game.new(item['publish_date'], item['archived'], item['multiplayer'], item['last_played_at'])
+    unless item['publish_date'].nil?
+      a = authors.select { |p| p.first_name == item['author'] } [0]
+      p item['first_name']
+      a.add_item(game)
+    end
+    games << game
+  end
+
+  games
+end

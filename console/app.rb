@@ -9,10 +9,10 @@ class App
 
   def initialize
     @books = []
-    @games = []
-    @authors = [Author.new('Stephen', 'King')]
+    @authors = load_authors
     @genres = []
     @labels = []
+    @games = load_games(@authors)
   end
 
   def list_all_books
@@ -33,5 +33,10 @@ class App
 
   def list_authors
     display_authors(@authors)
+  end
+
+  def save
+    save_authors(@authors)
+    save_games(@games)
   end
 end

@@ -10,6 +10,7 @@ def inputs
   [publisher, cover_state, publish_date]
 end
 
+
 def display_books(books)
   puts 'No book found, add a book.' if books.empty?
   books.each do |book|

@@ -5,6 +5,9 @@ class Util
     1 -List all books
     2 -Create a book
     3 -List all labels
+    7 -List all games
+    8 -Create a game
+    9 -List all authors
     0 -Exit"
   end
 end

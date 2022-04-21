@@ -7,13 +7,14 @@ def display_music_albums(music_albums)
   puts 'Database is empty! Add a music album.' if music_albums.empty?
   puts
   music_albums.each do |music_album|
-    puts "[Music album #{music_album.id}]
-    Publish date: #{music_album.publish_date},
-    Archived: #{music_album.archived},
-    On spotify: #{music_album.on_spotify}"
+    puts " [Music album id: #{music_album.id}]"
+    puts " Publish date: #{music_album.publish_date}"
+    puts " Archived: #{music_album.archived}"
+    puts " On spotify: #{music_album.on_spotify}"
     puts " Author : #{music_album.author.first_name}, #{music_album.author.last_name}" unless music_album.author.nil?
     puts " Genre : #{music_album.genre.name}" unless music_album.genre.nil?
     puts " Label : #{music_album.label.title}, #{music_album.label.color}" unless music_album.label.nil?
+    puts
   end
   puts
 end

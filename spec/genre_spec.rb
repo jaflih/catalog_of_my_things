@@ -18,20 +18,20 @@ describe Genre do
         expect(@genre.name).to eq 'Pop music'
       end
     end
-  end
 
-  context '@genre should have attribute items defautl to []' do
-    it '@label.items Should return []' do
-      expect(@genre.items).to eq []
+    context '@genre should have attribute items defautl to []' do
+      it '@label.items Should return []' do
+        expect(@genre.items).to eq []
+      end
     end
-  end
 
-  context '@genre should add an item ' do
-    it '@label.items Should return [item]' do
-      item = Item.new('1999/02/02', true)
-      @genre.add_item(item)
-      expect(@genre.items).to eq [item]
-      expect(item.genre).to eq @genre
+    context '@genre should add an item ' do
+      it '@label.items Should return [item]' do
+        item = Item.new('1999/02/02', true)
+        @genre.add_item(item)
+        expect(@genre.items).to eq [item]
+        expect(item.genre).to eq @genre
+      end
     end
   end
 end

@@ -19,35 +19,6 @@ def display_music_albums(music_albums)
   puts
 end
 
-def add_author(authors, music_album)
-  return if authors.empty?
-
-  puts 'Select the author '
-  authors.each_with_index do |author, index|
-    puts "#{index}) FirstName: #{author.first_name}, LastName: #{author.last_name}"
-  end
-  author_id = gets.chomp.to_i
-  authors[author_id].add_item(music_album)
-end
-
-def add_genres(genres, music_album)
-  return if genres.empty?
-
-  puts 'Select the genre '
-  genres.each_with_index { |genre, index| puts "#{index}) Name #{genre.name}" }
-  genres_id = gets.chomp.to_i
-  genres[genres_id].add_item(music_album)
-end
-
-def add_label(labels, music_album)
-  return if labels.empty?
-
-  puts 'Select the genre '
-  labels.each_with_index { |label, index| puts "#{index}) Title #{label.title}" }
-  label_id = gets.chomp.to_i
-  labels[label_id].add_item(music_album)
-end
-
 def input_music_album
   print 'Enter publish date: '
   publish_date = gets.chomp
@@ -107,16 +78,4 @@ def load_music_album(authors, labels, genres)
   end
 
   music_albums
-end
-
-def seach_author(authors, key)
-  authors.select { |p| p.first_name == key } [0]
-end
-
-def seach_label(labels, key)
-  labels.select { |p| p.title == key } [0]
-end
-
-def seach_genre(genres, key)
-  genres.select { |p| p.name == key } [0]
 end

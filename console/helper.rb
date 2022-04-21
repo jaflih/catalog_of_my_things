@@ -1,4 +1,4 @@
-def add_author(authors, game)
+def add_author(authors, item)
   return if authors.empty?
 
   puts 'Select the author '
@@ -6,25 +6,25 @@ def add_author(authors, game)
     puts "#{index}) FirstName: #{author.first_name}, LastName: #{author.last_name}"
   end
   author_id = gets.chomp.to_i
-  authors[author_id].add_item(game)
+  authors[author_id].add_item(item)
 end
 
-def add_genres(genres, game)
+def add_genres(genres, item)
   return if genres.empty?
 
   puts 'Select the genre '
   genres.each_with_index { |genre, index| puts "#{index}) Name #{genre.name}" }
   genres_id = gets.chomp.to_i
-  genres[genres_id].add_item(game)
+  genres[genres_id].add_item(item)
 end
 
-def add_label(labels, game)
+def add_label(labels, item)
   return if labels.empty?
 
   puts 'Select the label '
   labels.each_with_index { |label, index| puts "#{index}) Title #{label.title}" }
   label_id = gets.chomp.to_i
-  labels[label_id].add_item(game)
+  labels[label_id].add_item(item)
 end
 
 def seach_author(authors, key)

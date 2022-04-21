@@ -30,10 +30,11 @@ def main()
       app.list_authors
 
     when '7'
-      app.add_music_album
+      app.add_a_book
 
     when '8'
-      app.add_a_book
+
+      app.add_music_album
 
     when '9'
       app.create_game

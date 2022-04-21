@@ -15,15 +15,9 @@ class App
 
   def initialize
     @books = []
-<<<<<<< HEAD
     @authors = load_authors
-=======
     @labels = [Label.new('Gift', 'Green'), Label.new('New', 'Blue')]
-    @games = []
-    @authors = [Author.new('Stephen', 'King')]
->>>>>>> development
     @genres = [Genre.new('Comedy'), Genre.new('Thriller')]
-    @labels = []
     @music_albums = load_music_album(@authors, @labels, @genres)
     @games = load_games(@authors, @labels, @genres)
   end

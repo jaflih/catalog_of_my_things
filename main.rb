@@ -31,6 +31,7 @@ def main()
       app.list_authors
     when '0'
       puts "\n"
+      app.save
       puts 'Exited successfully, thank you for using this app 👍😊💪'
       app.save_book
     else

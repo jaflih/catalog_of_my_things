@@ -69,3 +69,53 @@ def create_new_music_album(authors, genres, labels)
   puts "Music_album #{publish_date} created successfully."
   music_album
 end
+
+def save_music_album(music_albums)
+  music_album = music_albums.map do |item|
+    {
+      publish_date: item.publish_date,
+      archived: item.archived,
+      on_spotify: item.on_spotify,
+      author: item.author&.first_name,
+      genre: item.genre&.name,
+      label: item.label&.title
+    }
+  end
+
+  data = JSON.generate(music_album)
+  File.write('data/music_album.json', data)
+end
+
+def load_music_album(authors, labels, genres)
+  return [] unless File.exist?('data/music_album.json')
+
+  music_albums = []
+
+  data = File.read('data/music_album.json')
+  JSON.parse(data).each do |item|
+    music_album = MusicAlbum.new(item['on_spotify'], item['publish_date'], item['archived'])
+    unless item['publish_date'].nil?
+      author = seach_author(authors, item['author'])
+      author&.add_item(music_album)
+      label = seach_label(labels, item['label'])
+      label&.add_item(music_album)
+      genre = seach_genre(genres, item['genre'])
+      genre&.add_item(music_album)
+    end
+    music_albums << music_album
+  end
+
+  music_albums
+end
+
+def seach_author(authors, key)
+  authors.select { |p| p.first_name == key } [0]
+end
+
+def seach_label(labels, key)
+  labels.select { |p| p.title == key } [0]
+end
+
+def seach_genre(genres, key)
+  genres.select { |p| p.name == key } [0]
+end

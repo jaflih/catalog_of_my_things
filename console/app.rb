@@ -18,7 +18,7 @@ class App
     @authors = [Author.new('Stephen', 'King')]
     @genres = [Genre.new('Comedy'), Genre.new('Thriller')]
     @labels = []
-    @music_albums = []
+    @music_albums = load_music_album(@authors, @labels, @genres)
   end
 
   def list_all_books
@@ -51,5 +51,9 @@ class App
 
   def list_authors
     display_authors(@authors)
+  end
+
+  def save
+    save_music_album(@music_albums)
   end
 end

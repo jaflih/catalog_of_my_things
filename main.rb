@@ -17,6 +17,12 @@ def main()
       app.add_a_book
     when '3'
       app.list_all_labels
+    when '4'
+      app.list_music_albums
+    when '5'
+      app.list_genres
+    when '6'
+      app.add_music_album
     when '7'
       app.list_games
     when '8'

@@ -3,14 +3,14 @@ class Util
     puts
     puts " Please choose an option by entering a number:
     1 -List all books
-    2 -Create a book
-    3 -List all labels
-    4 -List all music albums
-    5 -List all genres
-    6 -Add a music album
-    7 -List all games
-    8 -Create a game
-    9 -List all authors
+    2 -List all labels
+    3 -List all music albums
+    4 -List all genres
+    5 -List all games
+    6 -List all authors
+    7 -Create a book
+    8 -Create a music album
+    9 -Create a game
     0 -Exit"
   end
 end

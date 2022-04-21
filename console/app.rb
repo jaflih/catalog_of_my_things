@@ -1,6 +1,7 @@
 require 'json'
 require './application/book'
 require './application/author'
+require './application/label'
 require './application/music_album'
 require './application/genre'
 require './console/music_album_manager'
@@ -14,6 +15,7 @@ class App
 
   def initialize
     @books = []
+    @labels = [Label.new('Gift', 'Green'), Label.new('New', 'Blue')]
     @games = []
     @authors = [Author.new('Stephen', 'King')]
     @genres = [Genre.new('Comedy'), Genre.new('Thriller')]
@@ -25,8 +27,27 @@ class App
     display_books(@books)
   end
 
-  def create_book()
-    @books << create_book
+  def add_a_book
+    @books << create_book(@labels)
+  end
+
+  def list_all_labels
+    list_labels(@labels)
+  end
+
+  def save_book
+    save_book_to_file
+  end
+
+  def load_book
+    return [] unless File.exist?('./data/book.json')
+
+    @books = []
+    data = File.read('./data/book.json')
+    return if data == "\n" || data.empty?
+
+    result = book_loader(data)
+    @books = result.map { |book| book }
   end
 
   def list_music_albums

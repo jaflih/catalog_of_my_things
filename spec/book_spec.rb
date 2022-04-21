@@ -1,7 +1,7 @@
 require_relative '../application/book'
 describe 'Book class' do
   before(:all) do
-    @book = Book.new('james bond', 'cover_state', '2021-10-02', false)
+    @book = Book.new('james bond', 'cover_state', '2021-10-02', archived: false)
   end
   context 'Create the book class' do
     it 'book should have an instance Book class' do
@@ -21,13 +21,15 @@ describe 'Book class' do
 
   context 'can_archived method' do
     it 'can_be_archived should return true if parent method return true or cover_state equals bad' do
-      @book = Book.new('james bond', 'bad', '2021-10-02', true)
-      expect(@book.can_be_archived?).to eq true
+      @book = Book.new('james bond', 'bad', '2021-10-02', archived: true)
+      @book.move_to_archive
+      expect(@book.archived).to eq true
     end
 
     it 'can_be_archived should return false if parent method return false or cover_state not equals bad' do
-      @book = Book.new('james bond', 'state', '2021-10-02', false)
-      expect(@book.can_be_archived?).to eq false
+      @book = Book.new('james bond', 'state', '2021-10-02', archived: false)
+      @book.move_to_archive
+      expect(@book.archived).to eq false
     end
   end
 end

@@ -11,7 +11,7 @@ class App
 
   def initialize
     @books = []
-    @labels = [Label.new('Gift', 'New')]
+    @labels = [Label.new('Gift', 'Green'), Label.new('New', 'Blue')]
     @games = []
     @authors = [Author.new('Stephen', 'King')]
     @genres = []

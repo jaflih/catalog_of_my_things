@@ -2,6 +2,7 @@ require './application/game'
 require './application/author'
 require './application/label'
 require './application/genre'
+require './console/helper'
 
 def display_games(games)
   puts 'Database is empty! Add a game.' if games.empty?
@@ -18,36 +19,7 @@ def display_games(games)
   puts
 end
 
-def add_author(authors, game)
-  return if authors.empty?
-
-  puts 'Select the author '
-  authors.each_with_index do |author, index|
-    puts "#{index}) FirstName: #{author.first_name}, LastName: #{author.last_name}"
-  end
-  author_id = gets.chomp.to_i
-  authors[author_id].add_item(game)
-end
-
-def add_genres(genres, game)
-  return if genres.empty?
-
-  puts 'Select the genre '
-  genres.each_with_index { |genre, index| puts "#{index}) Name #{genre.name}" }
-  genres_id = gets.chomp.to_i
-  genres[genres_id].add_item(game)
-end
-
-def add_label(labels, game)
-  return if labels.empty?
-
-  puts 'Select the label '
-  labels.each_with_index { |label, index| puts "#{index}) Title #{label.title}" }
-  label_id = gets.chomp.to_i
-  labels[label_id].add_item(game)
-end
-
-def inputs
+def inputs_game
   print 'Enter publish date: '
   publish_date = gets.chomp
   print 'Enter archived: '
@@ -61,7 +33,7 @@ end
 
 def create_new_game(authors, genres, labels)
   puts 'Create a new game'
-  publish_date, archived, multiplayer, last_played_at = inputs
+  publish_date, archived, multiplayer, last_played_at = inputs_game
   puts
   puts "Game #{publish_date} created successfully."
   puts
@@ -109,16 +81,4 @@ def load_games(authors, labels, genres)
   end
 
   games
-end
-
-def seach_author(authors, key)
-  authors.select { |p| p.first_name == key } [0]
-end
-
-def seach_label(labels, key)
-  labels.select { |p| p.title == key } [0]
-end
-
-def seach_genre(genres, key)
-  genres.select { |p| p.title == key } [0]
 end

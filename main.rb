@@ -29,7 +29,6 @@ def main()
     when '0'
       puts "\n"
       puts 'Exited successfully, thank you for using this app 👍😊💪'
-      app.save_music_album
     else
       puts 'Wrong input'
     end

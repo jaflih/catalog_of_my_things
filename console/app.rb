@@ -16,7 +16,7 @@ class App
   end
 
   def add_a_book
-    @books << create_book
+    @books << create_book(@labels)
   end
 
   def list_all_labels
@@ -34,9 +34,7 @@ class App
     data = File.read('./data/book.json')
     return if data == "\n" || data.empty?
 
-    JSON.parse(data).each do |book|
-      book = book_instance_creator(book['publisher'], book['cover_state'], book['publish_date'])
-      @books << book
-    end
+    result = book_loader(data)
+    @books = result.map { |book| book }
   end
 end

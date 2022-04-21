@@ -14,8 +14,6 @@ class Label
   end
 
   def add_item(item)
-    puts 'Hello i am in label'
-    p item
     items << item
     item.label = self
   end

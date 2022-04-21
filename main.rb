@@ -1,6 +1,7 @@
 require_relative './console/app'
 require_relative './console/utilities'
 
+# rubocop:disable Metrics/CyclomaticComplexity
 def main()
   app = App.new
   util = Util.new
@@ -16,6 +17,12 @@ def main()
       app.add_a_book
     when '3'
       app.list_all_labels
+    when '7'
+      app.list_games
+    when '8'
+      app.create_game
+    when '9'
+      app.list_authors
     when '0'
       puts "\n"
       puts 'Exited successfully, thank you for using this app 👍😊💪'
@@ -25,5 +32,6 @@ def main()
     end
   end
 end
+# rubocop:enable Metrics/CyclomaticComplexity
 
 main

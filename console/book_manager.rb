@@ -1,7 +1,7 @@
 require_relative '../application/book'
 
 # Utilities for Book and Labels
-def inputs
+def inputs_book
   print 'Enter publisher name: '
   publisher = gets.chomp
   print 'Enter cover state (good or bad): '
@@ -25,6 +25,7 @@ def add_item_label(label, book)
 end
 
 # Main Book and Label Functins
+
 def display_books(books)
   puts 'No book found, add a book.' if books.empty?
   books.each.with_index do |book, index|
@@ -48,7 +49,7 @@ end
 
 def create_book(labels)
   puts
-  publisher, cover_state, publish_date = inputs
+  publisher, cover_state, publish_date = inputs_book
   book = book_instance_creator(publisher, cover_state, publish_date)
   puts
   puts 'Select Label by number'

@@ -1,14 +1,20 @@
 require 'json'
 require './application/book'
+require './application/author'
 require './console/book_manager'
 require './application/label'
+require './console/game_manager'
+require './console/author_manager'
 
 class App
-  attr_accessor :books
+  attr_accessor :books, :games, :authors
 
   def initialize
     @books = []
     @labels = [Label.new('Gift', 'New')]
+    @games = []
+    @authors = [Author.new('Stephen', 'King')]
+    @genres = []
   end
 
   def list_all_books
@@ -36,5 +42,17 @@ class App
 
     result = book_loader(data)
     @books = result.map { |book| book }
+  end
+
+  def list_games
+    display_games(@games)
+  end
+
+  def create_game
+    @games << create_new_game(@authors, @genres, @labels)
+  end
+
+  def list_authors
+    display_authors(@authors)
   end
 end

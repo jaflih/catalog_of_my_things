@@ -8,7 +8,7 @@ class App
 
   def initialize
     @books = []
-    @labels = []
+    @labels = [Label.new('Gift', 'New')]
   end
 
   def list_all_books
@@ -17,6 +17,10 @@ class App
 
   def add_a_book
     @books << create_book
+  end
+
+  def list_all_labels
+    list_labels(@labels)
   end
 
   def save_book
@@ -28,7 +32,7 @@ class App
 
     @books = []
     data = File.read('./data/book.json')
-    return if data == "\n"
+    return if data == "\n" || data.empty?
 
     JSON.parse(data).each do |book|
       book = book_instance_creator(book['publisher'], book['cover_state'], book['publish_date'])

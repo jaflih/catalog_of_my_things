@@ -1,3 +1,6 @@
+require_relative './book'
+require_relative './item'
+
 # Class Label
 class Label
   attr_accessor :title, :color
@@ -11,7 +14,9 @@ class Label
   end
 
   def add_item(item)
+    puts 'Hello i am in label'
+    p item
     items << item
-    item.label = (self)
+    item.label = self
   end
 end

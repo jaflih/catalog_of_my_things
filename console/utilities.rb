@@ -6,6 +6,9 @@ class Util
     4 -List all music albums
     5 -List all genres
     6 -Add a music album
+    7 -List all games
+    8 -Create a game
+    9 -List all authors
     0 -Exit"
   end
 end

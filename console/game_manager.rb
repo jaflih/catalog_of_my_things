@@ -20,13 +20,13 @@ def display_games(games)
 end
 
 def inputs_game
-  print 'Enter publish date: '
+  print 'Enter publish date (ie YYYY/MM/DD): '
   publish_date = gets.chomp
-  print 'Enter archived: '
+  print 'Enter archived (ie Yes/No): '
   archived = gets.chomp
-  print 'Enter multiplayer: '
+  print 'Enter multiplayer (ie Yes/No): '
   multiplayer = gets.chomp
-  print 'Enter last_played_at: '
+  print 'Enter last_played_at (ie YYYY/MM/DD): '
   last_played_at = gets
   [publish_date, archived, multiplayer, last_played_at]
 end

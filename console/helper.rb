@@ -3,7 +3,7 @@ def add_author(authors, item)
 
   puts 'Select the author '
   authors.each_with_index do |author, index|
-    puts "#{index}) FirstName: #{author.first_name}, LastName: #{author.last_name}"
+    puts "#{index}) #{author.first_name}, #{author.last_name}"
   end
   author_id = gets.chomp.to_i
   authors[author_id].add_item(item)
@@ -13,7 +13,7 @@ def add_genres(genres, item)
   return if genres.empty?
 
   puts 'Select the genre '
-  genres.each_with_index { |genre, index| puts "#{index}) Name #{genre.name}" }
+  genres.each_with_index { |genre, index| puts "#{index}) #{genre.name}" }
   genres_id = gets.chomp.to_i
   genres[genres_id].add_item(item)
 end
@@ -22,7 +22,7 @@ def add_label(labels, item)
   return if labels.empty?
 
   puts 'Select the label '
-  labels.each_with_index { |label, index| puts "#{index}) Title #{label.title}" }
+  labels.each_with_index { |label, index| puts "#{index}) #{label.title}" }
   label_id = gets.chomp.to_i
   labels[label_id].add_item(item)
 end

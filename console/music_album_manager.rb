@@ -20,11 +20,11 @@ def display_music_albums(music_albums)
 end
 
 def input_music_album
-  print 'Enter publish date: '
+  print 'Enter publish date (ie YYYY/MM/DD): '
   publish_date = gets.chomp
-  print 'Enter archived: '
+  print 'Enter archived (ie Yes/No): '
   archived = gets.chomp
-  print 'Enter on spotify/ not on spotify: '
+  print 'Enter on spotify/ not on spotify (ie Yes/No): '
   on_spotify = gets
   [publish_date, archived, on_spotify]
 end

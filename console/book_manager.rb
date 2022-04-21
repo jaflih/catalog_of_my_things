@@ -1,4 +1,4 @@
-require './application/books'
+require './application/book'
 
 def display_books(books)
   puts 'Database is empty! Add a book.' if books.empty?

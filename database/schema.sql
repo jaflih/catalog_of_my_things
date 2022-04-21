@@ -13,6 +13,11 @@ CREATE TABLE music_albums (
   on_spotify BOOLEAN
 )INHERITS(items);
 
+ALTER TABLE music_albums
+ADD CONSTRAINT music_albums_id
+PRIMARY KEY (id);
+ALTER TABLE music_albums ALTER id ADD GENERATED ALWAYS AS IDENTITY; 
+
 CREATE TABLE genres (
   id INT GENERATED ALWAYS AS IDENTITY,
   name VARCHAR(100),
@@ -42,3 +47,8 @@ CREATE TABLE games(
   multiplayer BOOLEAN,
   last_played_at DATE
 ) INHERITS (Items);
+
+ALTER TABLE games
+ADD CONSTRAINT games_id
+PRIMARY KEY (id);
+ALTER TABLE games ALTER id ADD GENERATED ALWAYS AS IDENTITY; 

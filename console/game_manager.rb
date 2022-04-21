@@ -41,7 +41,7 @@ end
 def add_label(labels, game)
   return if labels.empty?
 
-  puts 'Select the genre '
+  puts 'Select the label '
   labels.each_with_index { |label, index| puts "#{index}) Title #{label.title}" }
   label_id = gets.chomp.to_i
   labels[label_id].add_item(game)
@@ -89,22 +89,36 @@ def save_games(games)
   File.write('data/games.json', data)
 end
 
-def load_games(authors)
+def load_games(authors, labels, genres)
   return [] unless File.exist?('data/games.json')
 
-  p authors
   games = []
 
   data = File.read('data/games.json')
   JSON.parse(data).each do |item|
     game = Game.new(item['publish_date'], item['archived'], item['multiplayer'], item['last_played_at'])
     unless item['publish_date'].nil?
-      a = authors.select { |p| p.first_name == item['author'] } [0]
-      p item['first_name']
-      a.add_item(game)
+      author = seach_author(authors, item['author'])
+      author&.add_item(game)
+      label = seach_label(labels, item['label'])
+      label&.add_item(game)
+      genre = seach_genre(genres, item['genre'])
+      genre&.add_item(game)
     end
     games << game
   end
 
   games
+end
+
+def seach_author(authors, key)
+  authors.select { |p| p.first_name == key } [0]
+end
+
+def seach_label(labels, key)
+  labels.select { |p| p.title == key } [0]
+end
+
+def seach_genre(genres, key)
+  genres.select { |p| p.title == key } [0]
 end

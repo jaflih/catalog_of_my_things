@@ -3,7 +3,6 @@ require './application/author'
 require './application/label'
 require './application/genre'
 
-
 def display_music_albums(music_albums)
   puts 'Database is empty! Add a music album.' if music_albums.empty?
   puts
@@ -48,11 +47,11 @@ def add_label(labels, music_album)
   labels[label_id].add_item(music_album)
 end
 
-def inputs
+def input_music_album
   print 'Enter publish date: '
   publish_date = gets.chomp
   print 'Enter archived: '
-  archived = gets.chompt
+  archived = gets.chomp
   print 'Enter on spotify/ not on spotify: '
   on_spotify = gets
   [publish_date, archived, on_spotify]
@@ -60,9 +59,9 @@ end
 
 def create_new_music_album(authors, genres, labels)
   puts 'Create a new music album'
-  publish_date, archived, on_spotify = inputs
+  publish_date, archived, on_spotify = input_music_album
   puts
-  music_album = MusicAlbum.new(publish_date, archived, on_spotify)
+  music_album = MusicAlbum.new(on_spotify, publish_date, archived)
   add_author(authors, music_album)
   add_genres(genres, music_album)
   add_label(labels, music_album)

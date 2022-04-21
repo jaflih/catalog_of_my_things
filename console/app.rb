@@ -10,7 +10,7 @@ require './console/author_manager'
 require './console/book_manager'
 
 class App
-  attr_accessor :books, :games, :authors,  :music_albums
+  attr_accessor :books, :games, :authors, :music_albums
 
   def initialize
     @books = []

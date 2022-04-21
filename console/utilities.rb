@@ -5,7 +5,7 @@ class Util
     2 -Create a book
     4 -List all music albums
     5 -List all genres
-    6 -Create a music album
+    6 -Add a music album
     0 -Exit"
   end
 end

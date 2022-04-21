@@ -18,10 +18,11 @@ def main()
     when '5'
       app.list_genres
     when '6'
-      app.create_music_album
+      app.add_music_album
     when '0'
       puts "\n"
       puts 'Exited successfully, thank you for using this app 👍😊💪'
+      app.save_music_album
     else
       puts 'Wrong input'
     end

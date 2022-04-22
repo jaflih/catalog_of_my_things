@@ -1,10 +1,8 @@
 require 'date'
 
-# rubocop:disable Style/TrivialAccessors
-# We disable this linter because of the requirements
 class Item
-  attr_accessor :publish_date
-  attr_reader :id, :archived, :genre, :author, :source, :label
+  attr_accessor :publish_date, :genre, :author, :source, :label
+  attr_reader :id, :archived
 
   def initialize(publish_date, archived)
     @id = Random.rand(1..1000)
@@ -16,22 +14,6 @@ class Item
     @archived = true if can_be_archived?
   end
 
-  def genre=(genre)
-    @genre = genre
-  end
-
-  def author=(author)
-    @author = author
-  end
-
-  def source=(source)
-    @source = source
-  end
-
-  def label=(label)
-    @label = label
-  end
-
   private
 
   def can_be_archived?
@@ -40,5 +22,3 @@ class Item
     (currently_year - publish_year) >= 10
   end
 end
-
-# rubocop:enable Style/TrivialAccessors

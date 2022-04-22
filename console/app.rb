@@ -15,7 +15,7 @@ class App
 
   def initialize
     @books = []
-    @authors = load_authors
+    @authors = [Author.new('Stephen', 'King')]
     @labels = [Label.new('Gift', 'Green'), Label.new('New', 'Blue')]
     @genres = [Genre.new('Comedy'), Genre.new('Thriller')]
     @music_albums = load_music_album(@authors, @labels, @genres)
@@ -74,7 +74,6 @@ class App
   end
 
   def save
-    save_authors(@authors)
     save_games(@games)
     save_music_album(@music_albums)
   end
